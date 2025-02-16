@@ -13,7 +13,7 @@ public class WSApiUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(WSApiUtil.class);
 
-    private WSApiUtil() {
+    WSApiUtil() {
         throw new IllegalStateException("Utility class");
     }
 

@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 
 public class WSApiUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(WSApiUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(WSApiUtil.class);
 
     private WSApiUtil() {
         throw new IllegalStateException("Utility class");

@@ -22,6 +22,7 @@ public class WSApiUtil {
                 .newBuilder()
                 .uri(URI.create(completeUrl))
                 .build();
+
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpResponse<String> httpResponse = null;
 
@@ -31,7 +32,7 @@ public class WSApiUtil {
             logger.info(e.getMessage());
             Thread.currentThread().interrupt();
         }
-        return httpResponse.body();
+        return (httpResponse == null) ? "" : httpResponse.body();
     }
 
 }

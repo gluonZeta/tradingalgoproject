@@ -18,11 +18,18 @@ public class PropertiesUtil {
     public static Properties getPropertiesByFileName(String fileName) {
         Properties properties = new Properties();
 
-        try(InputStream inputStream = PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName)) {
-            properties.load(inputStream);
-        } catch (IOException e) {
-            logger.info(e.getMessage());
-            Thread.currentThread().interrupt();
+        InputStream inputStream = PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName);
+
+        if(inputStream == null) {
+            properties = null;
+        } else {
+            try {
+                properties.load(inputStream);
+            } catch (IOException e) {
+                logger.info(e.getMessage());
+                properties = null;
+                Thread.currentThread().interrupt();
+            }
         }
 
         return properties;

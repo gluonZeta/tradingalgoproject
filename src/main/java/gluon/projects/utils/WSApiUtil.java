@@ -31,6 +31,7 @@ public class WSApiUtil {
         } catch (IOException | InterruptedException e) {
             logger.info(e.getMessage());
             Thread.currentThread().interrupt();
+            return null;
         }
         return (httpResponse == null) ? "" : httpResponse.body();
     }

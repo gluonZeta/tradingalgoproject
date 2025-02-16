@@ -11,7 +11,7 @@ public class PropertiesUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
-    private PropertiesUtil() {
+    PropertiesUtil() {
         throw new IllegalStateException("Utility class");
     }
 

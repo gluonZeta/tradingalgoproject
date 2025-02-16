@@ -30,7 +30,7 @@ class WSApiUtilTest {
     }
 
     @Test()
-    void testConstructorThrowsException() throws Exception {
+    void testConstructorThrowsException() {
         Exception exception = Assertions.assertThrows(IllegalStateException.class, WSApiUtil::new);
         Assertions.assertEquals("Utility class", exception.getMessage());
     }

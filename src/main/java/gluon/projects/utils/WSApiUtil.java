@@ -1,5 +1,8 @@
 package gluon.projects.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -7,6 +10,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class WSApiUtil {
+
+    private static Logger logger = LoggerFactory.getLogger(WSApiUtil.class);
 
     private WSApiUtil() {
         throw new IllegalStateException("Utility class");
@@ -22,11 +27,8 @@ public class WSApiUtil {
 
         try {
             httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) {
-            e.printStackTrace();
-            Thread.currentThread().interrupt();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (IOException | InterruptedException e) {
+            logger.info(e.getMessage());
             Thread.currentThread().interrupt();
         }
         return httpResponse.body();

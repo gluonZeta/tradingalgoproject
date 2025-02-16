@@ -27,6 +27,9 @@ class WSApiUtilTest {
         Assertions.assertNotNull(resultPingTest);
         Assertions.assertEquals("{}", resultPingTest);
 
+
+        resultPingTest = WSApiUtil.getDataFrom(this.apiBinanceUrl);
+        Assertions.assertEquals("", resultPingTest);
     }
 
     @Test()
